@@ -13,6 +13,7 @@ pipeline {
                 branch 'master'
             }
             steps {
+                echo 'Checking Credentials of the stagging server'
                 withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
                     sshPublisher(
                         failOnError: true,
